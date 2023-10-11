@@ -13,6 +13,11 @@ var wrongEl = document.getElementById("wrong");
 var arrayShuffledQuestions = '0';
 var QuestionIndex = 0
 
+var containerScoreEl = document.getElementById("score");
+var containerHighScoresEl = document.getElementById("high-score-container")
+var ViewHighScoreEl = document.getElementById("high-score")
+var listHighScoreEl = document.getElementById("high-score-list")
+var formInitials = document.getElementById("initials-form");
 
 var questions = [
   {
@@ -52,6 +57,9 @@ var questions = [
   },
 ];
 
+
+
+
 var startGame = function () {
   containerStartEl.classList.add('hide');
   containerStartEl.classList.remove('visible');
@@ -89,6 +97,13 @@ var setTime = function () {
 
   }, 1000)
 }
+/* ------------------------------this will remove the answer ----------- */
+var resetAnswers = function () {
+  while (answerbuttonsEl.firstChild) {
+    answerbuttonsEl.removeChild(answerbuttonsEl.firstChild)
+  };
+};
+
 
 /* -----------------------Retry from high score page ----------------------*/
 
@@ -124,3 +139,26 @@ var displayQuestion = function (index) {
     answerbuttonsEl.appendChild(answerbutton)
   }
 };
+var answerCorrect = function () {
+  if (correctEl.className = "hide") {
+    correctEl.classList.remove("hide")
+    correctEl.classList.add("banner")
+    wrongEl.classList.remove("banner")
+    wrongEl.classList.add("hide")
+  }
+}
+
+var answerWrong = function () {
+  if (wrongEl.className = "hide") {
+    wrongEl.classList.remove("hide")
+    wrongEl.classList.add("banner")
+    correctEl.classList.remove("banner")
+    correctEl.classList.add("hide")
+  }
+}
+
+
+
+
+/*-------------------- Button Click ----------------------- */
+btnStartEl.addEventListener("click", startGame);
