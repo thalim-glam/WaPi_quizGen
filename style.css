@@ -1,4 +1,7 @@
-#start{
+*{
+  ;
+}
+.start-btn{
   border: none;
   background-color: hsla(182, 87%, 50%, 0.689);
   border-radius: 25px;
@@ -12,4 +15,12 @@
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+}
+#correct{
+  border: none;
+  color: hsl(0, 5%, 72%);
+}
+#wrong{
+  border: none;
+  color: hsl(0, 5%, 72%);
 }
