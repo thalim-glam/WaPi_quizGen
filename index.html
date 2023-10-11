@@ -10,12 +10,10 @@
 </head>
 
 <body>
-  <nav class="nav-wrapper black">
   <header>
-    <h4 id="high-score"> View High Score</h4>
+    <h4 id="high-score"> Highest Score : </h4>
     <h4 class="timer"> Time left : <span id="timer"></span></h4>
   </header>
-  </nav>
 
   <div id="container" class="visible">
     <div id="startScreen" class="start container">
@@ -28,8 +26,7 @@
     </div>
   </div>
 
-  <div id="questions" class="hide">
-    <h2 id="question-title">This is a title. </h2>
+  <div id="question-part" class="hide">
     <div class="question container">
       <div id="choices" class="choices"> </div>
       <div id="answer-btn" class="btn-grid"></div>
@@ -39,7 +36,7 @@
   <div id="end-container" class="hide">
     <div class="end container">
       <div id="score" class="score">
-        <h1> The End </h1>
+        <h1> All Done! </h1>
       </div>
       <form id="initial-form" class="initial">
         <p> Enter your Initials :
@@ -54,9 +51,9 @@
     <div class="high-score-container">
       <h1 class="high-score"> Here is Highest Score</h1>
       <ol id="high-score-list" class="score-list"></ol>
-    </div>
     <button class="btn" id="go-back"> Retry </button>
     <button class="btn" id="clear-high-score"> Clear High Score </button>
+    </div>
   </div>
 
   <div class="hide" id="correct">
