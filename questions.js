@@ -1,176 +1,37 @@
-var quizContainer = document.getElementById('choices');
-var resultContainer = document.getElementById('answer-btn');
-var submitButton = document.getElementById('submit');
-var retryButton = document.getElementById('retry');
-var showAnswerButton = document.getElementById('showAnswer');
+var containerQuestionEl = document.getElementById("question-container");
+var questionEl = document.getElementById("question")
+var answerbuttonsEl = document.getElementById("answer-buttons")
+var timerEl = document.querySelector("#timer");
 
-var quizData = [
-  {
-    question: 'How many sides are there in a Triangle?',
-    options: ['0', '1', '2', '3'],
-    answer: '3',
+
+var questions = [
+  { q: 'Arrays in Javascript can be used to store __________.', 
+    a: '4. all of the above', 
+    choices: [{choice: '1. numbers'}, {choice: '2. booleans'}, {choice: '3. strings'}, {choice: '4. all of the above'}]
   },
-  {
-    question: 'How many sides are there in a Circle?',
-    options: ['0', '1', '2', '3'],
-    answer: '0',
+  { q: 'Inside which HTML element do we put the javascript?', 
+    a: '3. <script>', 
+    choices: [{choice: '1. <h1>'}, {choice: '2. <js>'}, {choice: '3. <script>'}, {choice: '4. <head>'}]
   },
-  {
-    question: 'How many sides are there in a Square?',
-    options: ['1', '2', '3', '4'],
-    answer: '4',
+  { q: 'In the code -- setinterval(time(),1000) -- what is time()?', 
+    a: '1. callback function', 
+    choices: [{choice: '1. callback function'}, {choice: '2. undefined'}, {choice: '3. variable'}, {choice: '4. all of the above'}]
   },
-  {
-    question: 'How many sides are there in a Rectangle?',
-    options: ['1', '2', '3', '4'],
-    answer: '4',
+  { q: 'What syntax would call a function?', 
+    a: '4. function()', 
+    choices: [{choice: '1. var function'}, {choice: '2. function'}, {choice: '3. call function'}, {choice: '4. function()'}]
   },
-  {
-    question: 'How many sides are there in a Pentagon?',
-    options: ['1', '2', '3', 'none of the above'],
-    answer: 'none of the above',
+  { q: 'When did javascript first appear?', 
+    a: '1. 1995', 
+    choices: [{choice: '1. 1995'}, {choice: '2. Roaring twenties'}, {choice: '3. 2005'}, {choice: '4. 2000'}]
   },
-  {
-    question: 'Which shape has four sides?',
-    options: ['Square', 'Triangle', 'Rectanlge', 'Both 1 and 3'],
-    answer: 'Both 1 and 3',
+  { q: 'What does DOM stand for?', 
+    a: '2. Document Object Model', 
+    choices: [{choice: '1. Do Overnight Modules'}, {choice: '2. Document Object Model'}, {choice: '3. Divas Obviously Model'}, {choice: '4. Do Oo Mo'}]
   },
-  {
-    question: 'How many sides are there in a Oval?',
-    options: ['1', '2', '3', 'none of the above'],
-    answer: 'none of the above',
-  },
-  {
-    question: 'Which shape has no sides?',
-    options: ['Square', 'Triangle', 'Oval', 'Both 1 and 3'],
-    answer: 'Oval',
-  },
-  {
-    question: 'Which shape has four sides?',
-    options: ['Circle', 'Triangle', 'Rectanlge', 'None of the above'],
-    answer: 'Rectangle',
-  },
-  {
-    question: 'Who is the best in the universe?',
-    options: ['Square', 'Triangle', 'Rectanlge', 'You'],
-    answer: 'You',
+  { q: 'What is getItem commonly used for?', 
+    a: '2. local storage', 
+    choices: [{choice: '1. adding drama'}, {choice: '2. local storage'}, {choice: '3. online shopping'}, {choice: '4. naming a variable'}]
   },
 ];
 
-var currentQuestion = 0;
-var score = 0;
-var incorrectAnswers = [];
-
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
-
-function displayQuestion() {
-  const questionData = quizData[currentQuestion];
-
-  const questionElement = document.createElement('div');
-  questionElement.className = 'question';
-  questionElement.innerHTML = questionData.question;
-
-  const optionsElement = document.createElement('div');
-  optionsElement.className = 'options';
-
-  const shuffledOptions = [...questionData.options];
-  shuffleArray(shuffledOptions);
-
-  for (let i = 0; i < shuffledOptions.length; i++) {
-    const option = document.createElement('label');
-    option.className = 'option';
-
-    const radio = document.createElement('input');
-    radio.type = 'radio';
-    radio.name = 'quiz';
-    radio.value = shuffledOptions[i];
-
-    const optionText = document.createTextNode(shuffledOptions[i]);
-
-    option.appendChild(radio);
-    option.appendChild(optionText);
-    optionsElement.appendChild(option);
-  }
-
-  quizContainer.innerHTML = '';
-  quizContainer.appendChild(questionElement);
-  quizContainer.appendChild(optionsElement);
-}
-
-function checkAnswer() {
-  const selectedOption = document.querySelector('input[name="quiz"]:checked');
-  if (selectedOption) {
-    const answer = selectedOption.value;
-    if (answer === quizData[currentQuestion].answer) {
-      score++;
-    } else {
-      incorrectAnswers.push({
-        question: quizData[currentQuestion].question,
-        incorrectAnswer: answer,
-        correctAnswer: quizData[currentQuestion].answer,
-      });
-    }
-    currentQuestion++;
-    selectedOption.checked = false;
-    if (currentQuestion < quizData.length) {
-      displayQuestion();
-    } else {
-      displayResult();
-    }
-  }
-}
-
-function displayResult() {
-  quizContainer.style.display = 'none';
-  submitButton.style.display = 'none';
-  retryButton.style.display = 'inline-block';
-  showAnswerButton.style.display = 'inline-block';
-  resultContainer.innerHTML = `You scored ${score} out of ${quizData.length}!`;
-}
-
-function retryQuiz() {
-  currentQuestion = 0;
-  score = 0;
-  incorrectAnswers = [];
-  quizContainer.style.display = 'block';
-  submitButton.style.display = 'inline-block';
-  retryButton.style.display = 'none';
-  showAnswerButton.style.display = 'none';
-  resultContainer.innerHTML = '';
-  displayQuestion();
-}
-
-function showAnswer() {
-  quizContainer.style.display = 'none';
-  submitButton.style.display = 'none';
-  retryButton.style.display = 'inline-block';
-  showAnswerButton.style.display = 'none';
-
-  let incorrectAnswersHtml = '';
-  for (let i = 0; i < incorrectAnswers.length; i++) {
-    incorrectAnswersHtml += `
-      <p>
-        <strong>Question:</strong> ${incorrectAnswers[i].question}<br>
-        <strong>Your Answer:</strong> ${incorrectAnswers[i].incorrectAnswer}<br>
-        <strong>Correct Answer:</strong> ${incorrectAnswers[i].correctAnswer}
-      </p>
-    `;
-  }
-
-  resultContainer.innerHTML = `
-    <p>You scored ${score} out of ${quizData.length}!</p>
-    <p>Incorrect Answers:</p>
-    ${incorrectAnswersHtml}
-  `;
-}
-
-submitButton.addEventListener('click', checkAnswer);
-retryButton.addEventListener('click', retryQuiz);
-showAnswerButton.addEventListener('click', showAnswer);
-
-displayQuestion();
