@@ -113,3 +113,14 @@ var renderStartPage = function () {
   }
 }
 
+var displayQuestion = function (index) {
+  questionEl.innerText = index.q
+  for (var i = 0; i < index.choices.length; i++) {
+    var answerbutton = document.createElement('button')
+    answerbutton.innerText = index.choices[i].choice
+    answerbutton.classList.add('btn')
+    answerbutton.classList.add('answerbtn')
+    answerbutton.addEventListener("click", answerCheck)
+    answerbuttonsEl.appendChild(answerbutton)
+  }
+};
