@@ -2,7 +2,13 @@ var containerQuestionEl = document.getElementById("question-container");
 var questionEl = document.getElementById("question")
 var answerbuttonsEl = document.getElementById("answer-buttons")
 var timerEl = document.querySelector("#timer");
-
+var containerStartEl = document.getElementById("starter-container");
+var containerEndEl = document.getElementById("end-container")
+var questionEl = document.getElementById("question")
+var btnStartEl = document.querySelector("#start-game");
+var correctEl = document.getElementById("correct");
+var wrongEl = document.getElementById("wrong");
+var arrayShuffledQuestions = '0';
 
 var questions = [
   { q: 'Arrays in Javascript can be used to store __________.', 
@@ -35,3 +41,12 @@ var questions = [
   },
 ];
 
+var startGame = function() {
+  containerStartEl.classList.add('hide');
+  containerStartEl.classList.remove('show');
+  containerQuestionEl.classList.remove('hide');
+  containerQuestionEl.classList.add('show');
+  arrayShuffledQuestions = questions.sort(() => Math.random() - 0.5)
+  setTime()
+  setQuestion()
+}
