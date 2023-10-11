@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie-edge">
-  <title>Homework 4: Quiz challenge</title>
+  <title>Web APIs Challenge: Code Quiz </title>
   <link rel="stylesheet" href="./style.css" />
 </head>
 
@@ -18,10 +18,9 @@
   <div id="container" class="visible">
     <div id="startScreen" class="start container">
       <h1>Coding Quiz</h1>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni voluptates odio quis culpa cumque, fugit
-        provident libero eos dolorum nihil est harum deleniti aliquid reiciendis debitis ullam deserunt consequatur
-        ducimus.
-      </p>
+      <p>This is a Coding Quiz for JavaScript and Bootstrap. </p>
+      <p>For every wrong answer, time will be deducted from the "Timer". </p>
+      <p>There are 20 seconds for finishing the whole quiz, unless incorrect answers are being chosen.</p>
       <button class="start-btn" id="start-quiz"> Start </button>
     </div>
   </div>
@@ -36,7 +35,7 @@
   <div id="end-container" class="hide">
     <div class="end container">
       <div id="score" class="score">
-        <h1> All Done! </h1>
+        <h1> Game Over </h1>
       </div>
       <form id="initial-form" class="initial">
         <p> Enter your Initials :
@@ -51,8 +50,8 @@
     <div class="high-score-container">
       <h1 class="high-score"> Here is Highest Score</h1>
       <ol id="high-score-list" class="score-list"></ol>
-    <button class="btn" id="go-back"> Retry </button>
-    <button class="btn" id="clear-high-score"> Clear High Score </button>
+      <button class="btn" id="go-back"> Retry </button>
+      <button class="btn" id="clear-high-score"> Clear High Score </button>
     </div>
   </div>
 
