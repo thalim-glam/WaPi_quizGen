@@ -178,7 +178,7 @@ li {
   border: 2px solid var(--secondary);
 }
 
-.visible {
+.show {
   display: flex;
 }
 
