@@ -15,7 +15,7 @@ var containerScoreEl = document.getElementById("score");
 var containerHighScoresEl = document.getElementById("high-score-container");
 var ViewHighScoreEl = document.getElementById("high-score");
 var listHighScoreEl = document.getElementById("high-score-list");
-var formInitials = document.getElementById("initials-form");
+var formInitials = document.getElementById("initial-form");
 var btnClearScoresEl = document.querySelector("#clear-high-score");
 var timeleft = 0;
 
@@ -213,14 +213,14 @@ var showScore = function () {
 
 var createHighScore = function (event) {
   event.preventDefault()
-  var initials = document.querySelector("#initials").value;
-  if (!initials) {
-    alert("Enter your intials!");
+  var initial = document.querySelector("#initial").value;
+  if (!initial) {
+    alert("Enter your intial!");
     return;
   }
 
   var HighScore = {
-    initials: initials,
+    initial: initial,
     score: score
   }
 
@@ -228,6 +228,7 @@ var createHighScore = function (event) {
 
   /* --------------------------------------------- High Score --------------------------*/
 
+  var HighScores = [];
 
   //push and sort scores
   HighScores.push(HighScore);
@@ -241,7 +242,7 @@ var createHighScore = function (event) {
   for (var i = 0; i < HighScores.length; i++) {
     var highscoreEl = document.createElement("li");
     highscoreEl.ClassName = "high-score";
-    highscoreEl.innerHTML = HighScores[i].initials + " - " + HighScores[i].score;
+    highscoreEl.innerHTML = HighScores[i].initial + " - " + HighScores[i].score;
     listHighScoreEl.appendChild(highscoreEl);
   }
 
@@ -249,13 +250,13 @@ var createHighScore = function (event) {
   displayHighScores();
 
 }
-//save high score
+/* ----------------------------------------------save high score-------------------------------------------------*/
 var saveHighScore = function () {
-  localStorage.setItem("HighScores", JSON.stringify(HighScores))
+  localStorage.setItem("HighScores", JSON.stringify(HighScore))
 
 }
 
-//load values/ called on page load
+/* ----------------------------------------------------------load values/ called on page load-----------*/
 var loadHighScore = function () {
   var LoadedHighScores = localStorage.getItem("HighScores")
   if (!LoadedHighScores) {
@@ -269,7 +270,7 @@ var loadHighScore = function () {
   for (var i = 0; i < LoadedHighScores.length; i++) {
     var highscoreEl = document.createElement("li");
     highscoreEl.ClassName = "high-score";
-    highscoreEl.innerText = LoadedHighScores[i].initials + " - " + LoadedHighScores[i].score;
+    highscoreEl.innerText = LoadedHighScores[i].initial + " - " + LoadedHighScores[i].score;
     listHighScoreEl.appendChild(highscoreEl);
 
     HighScores.push(LoadedHighScores[i]);
@@ -277,7 +278,7 @@ var loadHighScore = function () {
   }
 }
 
-//display high score screen from link or when intiials entered
+/*-------------------------------------display high score screen from link or when intiials entered------*/
 var displayHighScores = function () {
 
   containerHighScoresEl.classList.remove("hide");
@@ -309,7 +310,7 @@ var displayHighScores = function () {
   }
 
 }
-//clears high scores
+/*-----------------------------------clears high scores----------------------*/
 var clearScores = function () {
   HighScores = [];
 
