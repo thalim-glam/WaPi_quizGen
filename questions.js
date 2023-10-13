@@ -246,15 +246,18 @@ var createHighScore = function (event) {
     listHighScoreEl.appendChild(highscoreEl);
   }
 
-  saveHighScore();
+  // saveHighScore();
+  
   displayHighScores();
 
 }
-/* ----------------------------------------------save high score-------------------------------------------------*/
+/* ----------------------------------------------save high score
 var saveHighScore = function () {
-  localStorage.setItem("HighScores", JSON.stringify(HighScore))
+  localStorage.setItem("HighScores", JSON.stringify(HighScores))
 
-}
+} 
+
+------------------------------------------------*/
 
 /* ----------------------------------------------------------load values/ called on page load-----------*/
 var loadHighScore = function () {
