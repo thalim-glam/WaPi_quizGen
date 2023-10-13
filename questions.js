@@ -18,7 +18,7 @@ var listHighScoreEl = document.getElementById("high-score-list");
 var formInitials = document.getElementById("initial-form");
 var btnClearScoresEl = document.querySelector("#clear-high-score");
 var timeleft = 0;
-
+var score = 0;
 
 
 
@@ -76,7 +76,7 @@ var questions = [
   {
     q: ' Which one of the following symbol is used for creating comments in the javascript: ',
     a: '3. // ',
-    choices: [{ choice: '1. \* */ ' }, { choice: '2. *\* */* ' }, { choice: '3. // ' }, { choice: '4. /-/ ' }]
+    choices: [{ choice: '1. /*/ ' }, { choice: '2. */* ' }, { choice: '3. // ' }, { choice: '4. /$/ ' }]
   },
 ];
 
@@ -246,7 +246,7 @@ var createHighScore = function (event) {
     listHighScoreEl.appendChild(highscoreEl);
   }
 
-  // saveHighScore();
+  //saveHighScore();
   
   displayHighScores();
 
