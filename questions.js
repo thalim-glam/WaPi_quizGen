@@ -100,7 +100,7 @@ var setQuestion = function () {
 
 /*----------------------------------Set timer -------------------------------------*/
 var setTime = function () {
-  timeleft = 50;
+  timeleft = 20;
 
   var timercheck = setInterval(function () {
     timerEl.innerText = timeleft;
