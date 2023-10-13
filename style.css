@@ -67,7 +67,6 @@ p {
   text-align: center;
   border: none;
   background-color: #8207a1;
-  ;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
   color: #ffffff;
@@ -145,23 +144,44 @@ p {
   font-size: 3.0vw;
 }
 .high-score-container {
+  padding: 0;
+  margin: auto;
+  display: inline-block;
+}
+.high-score {
+  padding: auto;
+  margin: auto;
+  font-size: 3rem;
+  display:inline-block;
+}
+ol {
   padding-left: 60px;
   margin: auto;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   display: flex;
-}
-
-ol {
-  list-style-type: number;
+  list-style-type:none;
 }
 
 li:nth-child(odd) {
-  background-color: rgba(228, 151, 164, 0.5);
+  background-color: rgba(243, 192, 200, 0.5);
   ;
 }
 
 li {
-  font-size: 4.0vw;
+  font-size: 3.0vw;
+}
+
+#go-back{
+  justify-content: center;
+  margin: 5px;
+  padding: 24px 24px;
+  color: rgb(255, 255, 255);
+}
+#clear-high-score{
+  margin: 5px;
+  padding: 24px 24px;
+  color: rgb(255, 255, 255);
+  padding-right: 20px;
 }
 
 /*----------------------------- Last Container --------------------------------------*/
