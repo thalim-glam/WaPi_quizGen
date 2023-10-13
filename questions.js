@@ -1,29 +1,32 @@
-/*----------------------- I am GOING INSANE WHILE DOING THIS HOMEWORK >:( )--------------*/
-
-
 var containerQuestionEl = document.getElementById("question-part");
-var questionEl = document.getElementById("choices")
-var answerbuttonsEl = document.getElementById("answer-btn")
+var questionEl = document.getElementById("choices");
+var answerbuttonsEl = document.getElementById("answer-btn");
 var timerEl = document.querySelector("#timer");
 var containerStartEl = document.getElementById("container");
-var containerEndEl = document.getElementById("end-container")
+var containerEndEl = document.getElementById("end-container");
 var btnStartEl = document.querySelector("#start-quiz");
+var btnGoBackEl = document.querySelector("#go-back");
+var gameover = "";
 var correctEl = document.getElementById("correct");
 var wrongEl = document.getElementById("wrong");
 var arrayShuffledQuestions = '0';
-var QuestionIndex = 0
-
+var QuestionIndex = 0;
 var containerScoreEl = document.getElementById("score");
-var containerHighScoresEl = document.getElementById("high-score-container")
-var ViewHighScoreEl = document.getElementById("high-score")
-var listHighScoreEl = document.getElementById("high-score-list")
+var containerHighScoresEl = document.getElementById("high-score-container");
+var ViewHighScoreEl = document.getElementById("high-score");
+var listHighScoreEl = document.getElementById("high-score-list");
 var formInitials = document.getElementById("initials-form");
+var btnClearScoresEl = document.querySelector("#clear-high-score");
+var timeleft = 0;
+
+
+
 
 var questions = [
   {
-    q: 'Arrays in Javascript can be used to store __________.',
-    a: '4. all of the above',
-    choices: [{ choice: '1. numbers' }, { choice: '2. booleans' }, { choice: '3. strings' }, { choice: '4. all of the above' }]
+    q: 'How many columns are allowed in a bootstrap grid system? ',
+    a: '4. 12',
+    choices: [{ choice: '1. 10' }, { choice: '2. 4' }, { choice: '3. 8' }, { choice: '4. 12' }]
   },
   {
     q: 'Inside which HTML element do we put the javascript?',
@@ -31,9 +34,9 @@ var questions = [
     choices: [{ choice: '1. <header>' }, { choice: '2. <link href=>' }, { choice: '3. <script>' }, { choice: '4. <head>' }]
   },
   {
-    q: 'In the code -- setinterval(time(),1000) -- what is time()?',
-    a: '1. callback function',
-    choices: [{ choice: '1. callback function' }, { choice: '2. undefined' }, { choice: '3. variable' }, { choice: '4. all of the above' }]
+    q: 'Which of the following is the correct syntax of creating a standard navigation tab?',
+    a: '1. <ul class="nav nav-tabs">',
+    choices: [{ choice: '1. <ul class="nav nav-tabs">' }, { choice: '2. <ul class="navigation tabs">' }, { choice: '3. <ul class="nav tab">' }, { choice: '4. <ul class="navigation nav-tabs">' }]
   },
   {
     q: 'What syntax would call a function?',
@@ -51,15 +54,33 @@ var questions = [
     choices: [{ choice: '1. Do Overnight Modules' }, { choice: '2. Document Object Model' }, { choice: '3. Device Obviously Model' }, { choice: '4. Document Oriented Module' }]
   },
   {
-    q: 'What is getItem commonly used for?',
+    q: 'What is getItem commonly used for? ',
     a: '2. Local storage',
     choices: [{ choice: '1. Get more Information' }, { choice: '2. Local storage' }, { choice: '3. Get Items' }, { choice: '4. Assign a variable' }]
   },
+  {
+    q: 'Which of the following class in Bootstrap is used to create a dropdown menu? ',
+    a: '2. ".dropdown" ',
+    choices: [{ choice: '1. ".select-list" ' }, { choice: '2. ".dropdown" ' }, { choice: '3. ".select" ' }, { choice: '4. "None of the above" ' }]
+  },
+  {
+    q: ' The "function" and " var" are known as: ',
+    a: '3. Declaration statements',
+    choices: [{ choice: '1. Keywords ' }, { choice: '2. Data types ' }, { choice: '3. Declaration statements ' }, { choice: '4. Prototypes ' }]
+  },
+  {
+    q: 'Which one of the following is the correct way for calling the JavaScript code? ',
+    a: '2. Function/Method ',
+    choices: [{ choice: '1. Triggering Event' }, { choice: '2. Function/Method' }, { choice: '3. Preprocessor' }, { choice: '4. "None of the above" ' }]
+  },
+  {
+    q: ' Which one of the following symbol is used for creating comments in the javascript: ',
+    a: '3. // ',
+    choices: [{ choice: '1. \* */ ' }, { choice: '2. *\* */* ' }, { choice: '3. // ' }, { choice: '4. /-/ ' }]
+  },
 ];
 
-
-
-
+/*----------------------------------- Game Starts here --------------------------------*/
 var startGame = function () {
   containerStartEl.classList.add('hide');
   containerStartEl.classList.remove('show');
@@ -79,7 +100,7 @@ var setQuestion = function () {
 
 /*----------------------------------Set timer -------------------------------------*/
 var setTime = function () {
-  timeleft = 30;
+  timeleft = 50;
 
   var timercheck = setInterval(function () {
     timerEl.innerText = timeleft;
@@ -105,7 +126,7 @@ var resetAnswers = function () {
 };
 
 
-/* -----------------------Retry from high score page ----------------------*/
+/* ----------------------- Retry from high score page ----------------------*/
 
 var renderStartPage = function () {
   containerHighScoresEl.classList.add("hide")
