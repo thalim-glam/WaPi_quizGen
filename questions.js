@@ -25,62 +25,62 @@ var score = 0;
 var questions = [
   {
     q: 'How many columns are allowed in a bootstrap grid system? ',
-    a: '4. 12',
-    choices: [{ choice: '1. 10' }, { choice: '2. 4' }, { choice: '3. 8' }, { choice: '4. 12' }]
+    a: '[D] 12',
+    choices: [{ choice: '[A] 10' }, { choice: '[B] 4' }, { choice: '[C] 8' }, { choice: '[D] 12' }]
   },
   {
     q: 'Inside which HTML element do we put the javascript?',
-    a: '3. <script>',
-    choices: [{ choice: '1. <header>' }, { choice: '2. <link href=>' }, { choice: '3. <script>' }, { choice: '4. <head>' }]
+    a: '[C] <script>',
+    choices: [{ choice: '[A] <header>' }, { choice: '[B] <link href=>' }, { choice: '[C] <script>' }, { choice: '[D] <head>' }]
   },
   {
     q: 'Which of the following is the correct syntax of creating a standard navigation tab?',
-    a: '1. <ul class="nav nav-tabs">',
-    choices: [{ choice: '1. <ul class="nav nav-tabs">' }, { choice: '2. <ul class="navigation tabs">' }, { choice: '3. <ul class="nav tab">' }, { choice: '4. <ul class="navigation nav-tabs">' }]
+    a: '[A] <ul class="nav nav-tabs">',
+    choices: [{ choice: '[A] <ul class="nav nav-tabs">' }, { choice: '[B] <ul class="navigation tabs">' }, { choice: '[C] <ul class="nav tab">' }, { choice: '[D] <ul class="navigation nav-tabs">' }]
   },
   {
     q: 'What syntax would call a function?',
-    a: '4. function()',
-    choices: [{ choice: '1. var function' }, { choice: '2. function syntax' }, { choice: '3. call function' }, { choice: '4. function()' }]
+    a: '[D] function()',
+    choices: [{ choice: '[A] var function' }, { choice: '[B] function syntax' }, { choice: '[C] call function' }, { choice: '[D] function()' }]
   },
   {
     q: 'When did javascript first appear?',
-    a: '1. 1995',
-    choices: [{ choice: '1. 1995' }, { choice: '2. 1959' }, { choice: '3. 2005' }, { choice: '4. 1985' }]
+    a: '[A] 1995',
+    choices: [{ choice: '[A] 1995' }, { choice: '[B] 1959' }, { choice: '[C] 2005' }, { choice: '[D] 1985' }]
   },
   {
     q: 'What does DOM stand for?',
-    a: '2. Document Object Model',
-    choices: [{ choice: '1. Do Overnight Modules' }, { choice: '2. Document Object Model' }, { choice: '3. Device Obviously Model' }, { choice: '4. Document Oriented Module' }]
+    a: '[B] Document Object Model',
+    choices: [{ choice: '[A] Do Overnight Modules' }, { choice: '[B] Document Object Model' }, { choice: '[C] Device Obviously Model' }, { choice: '[D] Document Oriented Module' }]
   },
   {
     q: 'What is getItem commonly used for? ',
-    a: '2. Local storage',
-    choices: [{ choice: '1. Get more Information' }, { choice: '2. Local storage' }, { choice: '3. Get Items' }, { choice: '4. Assign a variable' }]
+    a: '[B] Local storage',
+    choices: [{ choice: '[A] Get more Information' }, { choice: '[B] Local storage' }, { choice: '[C] Get Items' }, { choice: '[D] Assign a variable' }]
   },
   {
     q: 'Which of the following class in Bootstrap is used to create a dropdown menu? ',
-    a: '2. ".dropdown" ',
-    choices: [{ choice: '1. ".select-list" ' }, { choice: '2. ".dropdown" ' }, { choice: '3. ".select" ' }, { choice: '4. "None of the above" ' }]
+    a: '[B] .dropdown ',
+    choices: [{ choice: '[A] .select-list' }, { choice: '[B] .dropdown' }, { choice: '[C] .select' }, { choice: '[D] None of the above' }]
   },
   {
     q: ' The "function" and " var" are known as: ',
-    a: '3. Declaration statements',
-    choices: [{ choice: '1. Keywords ' }, { choice: '2. Data types ' }, { choice: '3. Declaration statements ' }, { choice: '4. Prototypes ' }]
+    a: '[C] Declaration statements',
+    choices: [{ choice: '[A] Keywords ' }, { choice: '[B] Data types ' }, { choice: '[C] Declaration statements ' }, { choice: '[D] Prototypes ' }]
   },
   {
     q: 'Which one of the following is the correct way for calling the JavaScript code? ',
-    a: '2. Function/Method ',
-    choices: [{ choice: '1. Triggering Event' }, { choice: '2. Function/Method' }, { choice: '3. Preprocessor' }, { choice: '4. "None of the above" ' }]
+    a: '[B] Function/Method ',
+    choices: [{ choice: '[A] Triggering Event' }, { choice: '[B] Function/Method' }, { choice: '[C] Preprocessor' }, { choice: '[D] "None of the above" ' }]
   },
   {
     q: ' Which one of the following symbol is used for creating comments in the javascript: ',
-    a: '3. // ',
-    choices: [{ choice: '1. /*/ ' }, { choice: '2. */* ' }, { choice: '3. // ' }, { choice: '4. /$/ ' }]
+    a: '[C] // ',
+    choices: [{ choice: '[A] /*/ ' }, { choice: '[B] */* ' }, { choice: '[C] // ' }, { choice: '[D] /$/ ' }]
   },
 ];
 
-/*----------------------------------- Game Starts here --------------------------------*/
+/*------------------------------When the start button clicked the quiz starts here--------------------*/
 var startGame = function () {
   containerStartEl.classList.add('hide');
   containerStartEl.classList.remove('show');
@@ -90,17 +90,14 @@ var startGame = function () {
   setTime()
   setQuestion()
 }
-
-/*----------------------------- next question for quiz ---------------------------*/
+/*-------------------------------------- Setting next question to display -------------------------*/
 var setQuestion = function () {
   resetAnswers()
   displayQuestion(arrayShuffledQuestions[QuestionIndex])
 }
-
-
-/*----------------------------------Set timer -------------------------------------*/
+/*-------------------------------------  Set timer  -------------------------------------*/
 var setTime = function () {
-  timeleft = 20;
+  timeleft = 30;
 
   var timercheck = setInterval(function () {
     timerEl.innerText = timeleft;
@@ -199,7 +196,7 @@ var answerCheck = function (event) {
     showScore();
   }
 }
-/* ------------------------ Show Score--------------------------*/
+/* ---------------------------------- Show Score--------------------------*/
 
 var showScore = function () {
   containerQuestionEl.classList.add("hide");
@@ -215,7 +212,7 @@ var createHighScore = function (event) {
   event.preventDefault()
   var initial = document.querySelector("#initial").value;
   if (!initial) {
-    alert("Enter your intial!");
+    alert("Ooopsss ! You forgot to Enter your intial !");
     return;
   }
 
@@ -246,18 +243,17 @@ var createHighScore = function (event) {
     listHighScoreEl.appendChild(highscoreEl);
   }
 
-  //saveHighScore();
+  saveHighScore();
   
   displayHighScores();
 
 }
-/* ----------------------------------------------save high score
+
 var saveHighScore = function () {
   localStorage.setItem("HighScores", JSON.stringify(HighScores))
 
 } 
 
-------------------------------------------------*/
 
 /* ----------------------------------------------------------load values/ called on page load-----------*/
 var loadHighScore = function () {
@@ -327,9 +323,9 @@ var clearScores = function () {
 
 loadHighScore()
 
-/*-------------------- Button Click ----------------------- */
-btnStartEl.addEventListener("click", startGame);
-btnGoBackEl.addEventListener("click", renderStartPage);
-btnClearScoresEl.addEventListener("click", clearScores);
-ViewHighScoreEl.addEventListener("click", displayHighScores);
-formInitials.addEventListener("submit", createHighScore);
+/*-------------------- Button Clicks ----------------------- */
+btnStartEl.addEventListener("click", startGame);                           //Start
+btnGoBackEl.addEventListener("click", renderStartPage);                    //Retry
+btnClearScoresEl.addEventListener("click", clearScores);                   //Clear Score
+ViewHighScoreEl.addEventListener("click", displayHighScores);              //High Score
+formInitials.addEventListener("submit", createHighScore);                  //Clear Initial
