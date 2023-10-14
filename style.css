@@ -159,16 +159,18 @@ ol {
   margin: auto;
   font-size: 1.1rem;
   display: flex;
-  list-style-type:none;
+  list-style-type: number;
+  flex-direction: column;
+  flex-wrap: nowrap;
 }
 
 li:nth-child(odd) {
   background-color: rgba(243, 192, 200, 0.5);
-  ;
 }
 
 li {
   font-size: 3.0vw;
+  display:list-item;
 }
 
 #go-back{

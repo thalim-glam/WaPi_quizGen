@@ -19,7 +19,7 @@ var formInitials = document.getElementById("initial-form");
 var btnClearScoresEl = document.querySelector("#clear-high-score");
 var timeleft = 0;
 var score = 0;
-
+var HighScores = [];
 
 
 var questions = [
@@ -60,7 +60,7 @@ var questions = [
   },
   {
     q: 'Which of the following class in Bootstrap is used to create a dropdown menu? ',
-    a: '[B] .dropdown ',
+    a: '[B] .dropdown',
     choices: [{ choice: '[A] .select-list' }, { choice: '[B] .dropdown' }, { choice: '[C] .select' }, { choice: '[D] None of the above' }]
   },
   {
@@ -90,11 +90,13 @@ var startGame = function () {
   setTime()
   setQuestion()
 }
+
 /*-------------------------------------- Setting next question to display -------------------------*/
 var setQuestion = function () {
   resetAnswers()
   displayQuestion(arrayShuffledQuestions[QuestionIndex])
 }
+
 /*-------------------------------------  Set timer  -------------------------------------*/
 var setTime = function () {
   timeleft = 30;
@@ -115,16 +117,15 @@ var setTime = function () {
 
   }, 1000)
 }
+
 /* ------------------------------this will remove the answer ----------- */
 var resetAnswers = function () {
   while (answerbuttonsEl.firstChild) {
     answerbuttonsEl.removeChild(answerbuttonsEl.firstChild)
   };
-};
-
+}
 
 /* ----------------------- Retry from high score page ----------------------*/
-
 var renderStartPage = function () {
   containerHighScoresEl.classList.add("hide")
   containerHighScoresEl.classList.remove("show")
@@ -196,8 +197,8 @@ var answerCheck = function (event) {
     showScore();
   }
 }
-/* ---------------------------------- Show Score--------------------------*/
 
+/* ---------------------------------- Show Score--------------------------*/
 var showScore = function () {
   containerQuestionEl.classList.add("hide");
   containerEndEl.classList.remove("hide");
@@ -208,54 +209,48 @@ var showScore = function () {
   containerScoreEl.appendChild(scoreDisplay);
 }
 
+/* --------------------------------------------- High Score --------------------------*/
 var createHighScore = function (event) {
-  event.preventDefault()
+  event.preventDefault();
   var initial = document.querySelector("#initial").value;
   if (!initial) {
     alert("Ooopsss ! You forgot to Enter your intial !");
-    return;
+    //return;
   }
 
-  var HighScore = {
+  //var HighScores = [];
+  var currentScore = {
     initial: initial,
     score: score
   }
 
   formInitials.reset();
 
-  /* --------------------------------------------- High Score --------------------------*/
-
-  var HighScores = [];
-
-  //push and sort scores
-  HighScores.push(HighScore);
+  /*------------------------ Pushing value to the HighScore array-------------*/
+  HighScores.push(currentScore);
   HighScores.sort((a, b) => { return b.score - a.score });
 
-  //clear visibile list to resort
+  /*--------------------------- clear visibile list -----------------------*/
   while (listHighScoreEl.firstChild) {
     listHighScoreEl.removeChild(listHighScoreEl.firstChild)
   }
-  //create elements in order of high scores
+
+  /*----------------------- Creating List element -------------------------------------*/
   for (var i = 0; i < HighScores.length; i++) {
     var highscoreEl = document.createElement("li");
     highscoreEl.ClassName = "high-score";
-    highscoreEl.innerHTML = HighScores[i].initial + " - " + HighScores[i].score;
+    highscoreEl.innerHTML = HighScores[i].initial + " : " + HighScores[i].score;
     listHighScoreEl.appendChild(highscoreEl);
   }
-
   saveHighScore();
-  
   displayHighScores();
-
 }
 
 var saveHighScore = function () {
   localStorage.setItem("HighScores", JSON.stringify(HighScores))
+}
 
-} 
-
-
-/* ----------------------------------------------------------load values/ called on page load-----------*/
+/* --------------------------------- load values/ called on page load ------------------*/
 var loadHighScore = function () {
   var LoadedHighScores = localStorage.getItem("HighScores")
   if (!LoadedHighScores) {
@@ -265,15 +260,14 @@ var loadHighScore = function () {
   LoadedHighScores = JSON.parse(LoadedHighScores);
   LoadedHighScores.sort((a, b) => { return b.score - a.score })
 
-
   for (var i = 0; i < LoadedHighScores.length; i++) {
     var highscoreEl = document.createElement("li");
-    highscoreEl.ClassName = "high-score";
-    highscoreEl.innerText = LoadedHighScores[i].initial + " - " + LoadedHighScores[i].score;
+    highscoreEl.ClassName = "score-list";
+    //-------------------------------------
+    highscoreEl.innerText = LoadedHighScores[i].initial + " : " + LoadedHighScores[i].score;
     listHighScoreEl.appendChild(highscoreEl);
 
     HighScores.push(LoadedHighScores[i]);
-
   }
 }
 
