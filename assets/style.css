@@ -10,8 +10,27 @@ body {
   color: #4f0461;
   ;
   margin: 0;
-  padding: 0;
+  padding: 1;
   font-family: 'Times New Roman', Times, serif;
+}
+
+/*--------------------------------------- Design for TH --------------------------------*/
+.home {
+  display: flex;
+  background: url("https://source.unsplash.com/720x600/?white, pattern") repeat
+    center;
+  height: 3vh;
+  color:rgb(12, 12, 12);
+  min-height: 100px;
+  background-size: cover;
+  background-attachment: fixed; 
+  font-weight: bolder;
+  text-align: center; 
+  font-family: 'Times New Roman', Times, serif;
+}
+.home .max-width {
+  width: 100%;
+  display: flex;
 }
 
 /* ------------------------------------- Header -------------------------------------*/

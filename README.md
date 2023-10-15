@@ -45,6 +45,7 @@ Apart from me :D the credit also goes to my Instructor, TAs, Tutor, Classmates, 
 - Stack Overflow
 - MDN web doc
 - Github docs
+- Tutorials Teacher
 
 ## User Story
 

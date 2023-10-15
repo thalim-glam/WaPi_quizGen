@@ -6,14 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie-edge">
   <title>Web APIs Challenge: Code Quiz </title>
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./assets/style.css" />
 </head>
 
 <body>
+  
   <header>
     <h4 id="high-score"> Highest Score</h4>
     <h4 class="timer"> Time left : <span id="timer"></span></h4>
   </header>
+
+  <section class="home" id="home">
+    <div class="max-width">
+      <div class="home-content">
+      </div>
+    </div>
+  </section>
 
   <div id="container" class="show">
     <div id="startScreen" class="start container">
@@ -48,7 +56,7 @@
 
   <div id="high-score-container" class="hide">
     <div class="high-score-container">
-      <h1 class="high-score">User Initial:Score</h1>
+      <h1 class="high-score">User Initial & Score</h1>
       <ol id="high-score-list" class="score-list"></ol>
       <button class="btn" id="go-back"> Try Again </button>
       <button class="btn" id="clear-high-score"> Clear High Score </button>
@@ -62,7 +70,7 @@
     <h2> Wrong Answer! Lost 4 sec :( </h2>
   </div>
 
-  <script src="./questions.js"></script>
+  <script src="./assets/questions.js"></script>
 
 </body>
 
