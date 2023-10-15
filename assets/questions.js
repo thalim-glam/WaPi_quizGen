@@ -66,17 +66,17 @@ var questions = [
   {
     q: ' The "function" and " var" are known as: ',
     a: '[C] Declaration statements',
-    choices: [{ choice: '[A] Keywords ' }, { choice: '[B] Data types ' }, { choice: '[C] Declaration statements ' }, { choice: '[D] Prototypes ' }]
+    choices: [{ choice: '[A] Keywords ' }, { choice: '[B] Data types ' }, { choice: '[C] Declaration statements' }, { choice: '[D] Prototypes ' }]
   },
   {
     q: 'Which one of the following is the correct way for calling the JavaScript code? ',
-    a: '[B] Function/Method ',
+    a: '[B] Function/Method',
     choices: [{ choice: '[A] Triggering Event' }, { choice: '[B] Function/Method' }, { choice: '[C] Preprocessor' }, { choice: '[D] "None of the above" ' }]
   },
   {
     q: ' Which one of the following symbol is used for creating comments in the javascript: ',
-    a: '[C] // ',
-    choices: [{ choice: '[A] /*/ ' }, { choice: '[B] */* ' }, { choice: '[C] // ' }, { choice: '[D] /$/ ' }]
+    a: '[A] /* Comment*/',
+    choices: [{ choice: '[A] /* Comment*/' }, { choice: '[B] * Comment *' }, { choice: '[C] /Comment/' }, { choice: '[D] $Comment' }]
   },
 ];
 
