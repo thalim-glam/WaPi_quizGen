@@ -20,10 +20,12 @@ To run the application successfully, we need Microsoft Visual Studio as an edito
 
 ## Usage
 
-Please go to this link to view my 03-homework : https://thalim-glam.github.io/WaPi_quizGen/
+To see my homework, please go to : https://thalim-glam.github.io/WaPi_quizGen/
 
 Here is a sample screenshot showing partial view og my project
-![Screenshot of Password Generator Homework](./assets/Screenshot.png)
+![Screenshot of Code Quiz Generator](./assets/images/Screenshot_1.png)
+![Screenshot of Sample of Quiz Questions](./assets/images/Screenshot_2.png)
+![Screenshot of Final Scores of different users](./assets/images/Screenshot_3.png)
 
 ## Comand line code
 
