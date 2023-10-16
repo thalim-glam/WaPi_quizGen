@@ -238,6 +238,23 @@ li {
   color: hsl(0, 5%, 72%);
 }
 
+/* ------------------------------------ Footer Part ------------------------------ */
+
+footer {
+  background: #111;
+  padding: 6px 16px;
+  color: #888c8d;
+  text-align: center;
+  display:none;
+}
+footer span a {
+  color: #ffea02;
+  text-decoration: none;
+}
+
+footer span a:hover {
+  text-decoration: underline;
+}
 /*--------------------------------------- Media Query  --------------------------------- */
 
 @media screen and (max-width: 1024px) {
